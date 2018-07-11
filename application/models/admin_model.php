@@ -12,7 +12,6 @@ class Admin_model extends CI_Model {
         $records = array(
             'nama' => $this->input->post('txtNama'),
             'tanggal_masuk' => date('Y-m-d H:i:s'),
-            // 'tanggal_keluar' => $this->input->post('tanggal_keluar'),
             'barang' => $this->input->post('txtBarang'),
             // 'kerusakan' => $this->input->post('kerusakan'),
             // 'solusi' => $this->input->post('solusi'),
@@ -45,7 +44,7 @@ class Admin_model extends CI_Model {
         $records = array(
             'nama' => $this->input->post('txtNama'),
             'tanggal_masuk' => date('Y-m-d H:i:s'),
-            // 'tanggal_keluar' => $this->input->post('tanggal_keluar'),
+            'updated_at' => $this->input->post('tanggal_keluar'),
             'barang' => $this->input->post('txtBarang'),
             // 'kerusakan' => $this->input->post('kerusakan'),
             // 'solusi' => $this->input->post('solusi'),
@@ -71,5 +70,18 @@ class Admin_model extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    public function search($query) {
+        $q = "SELECT * FROM data_penjualan
+                WHERE
+                nama LIKE '%$query%' OR
+                barang LIKE '%$query%' OR
+                kerusakan LIKE '%$query%' OR
+                ket_biaya LIKE '%$query%'
+                ";
+        $query = $this->db->query($q);
+        $row = $query->result_array();
+        return $row;
     }
 }

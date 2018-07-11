@@ -11,13 +11,14 @@ class Login_c extends CI_Controller {
 	public function index() {
 		if($_POST) {
 			$result = $this->login->validate($_POST);
+			$username_hash = hash("sneffru", $result->username);
 			if(!empty($result)) {
 				$data = [
 					'id_username' => $result->id_username,
 					'username' => $result->username,
-					'password' => md5($result->password)
+					'password' => $result->password
 				];
-
+				$this->input->set_cookie($result->id_username, $result->username, time() + 3600);
 				$this->session->set_userdata($data);
 				redirect('admin_c');
 			} else {

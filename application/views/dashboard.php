@@ -2,20 +2,20 @@
 </div>
 
 <div class="container">    
-    <h3>List transaksi</h3>
+    <h1>Catatan Pemasukan</h1>
     <div class="alert alert-success" style="display: none;"></div>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <td>Data id</td>   
-                <td>Nama</td>
-                <td>Tanggal Masuk</td>
-                <td>Tanggal Keluar</td>
-                <td>Barang</td>
-                <td>kerusakan</td>
-                <td>Solusi</td>
-                <td>Biaya</td>
-                <td>Keterangan Biaya</td>
+                <th>Data id</th>   
+                <th>Nama</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Keluar</th>
+                <th>Barang</th>
+                <th>kerusakan</th>
+                <th>Solusi</th>
+                <th>Biaya</th>
+                <th>Keterangan Biaya</th>
             </tr>
         </thead>
         <tbody id="tbody">
